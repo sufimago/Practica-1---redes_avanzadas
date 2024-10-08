@@ -1,10 +1,19 @@
 <?php
 session_start(); // Inicia la sesión
+$is_pro_env = false;  // Puedes utilizar variables de entorno u otra lógica para esto
 
-$servername = "mysql_db_sta"; 
-$username = "root";
-$password = "sta-pass";
-$dbname = "sta.db";
+// Conectar con la base de datos según el entorno
+if ($is_pro_env) {
+    $servername = "mysql_db_pro";
+    $username = "root";
+    $password = "pro-pass";
+    $dbname = "pro.db";
+} else {
+    $servername = "mysql_db_sta";
+    $username = "root";
+    $password = "sta-pass";
+    $dbname = "sta.db";
+}
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -49,4 +58,6 @@ $result = $conn->query($sql);
 
 // Cerrar conexión
 $conn->close();
+echo "<script>
+</script>";
 ?>
