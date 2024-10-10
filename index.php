@@ -1,19 +1,24 @@
 <?php
-    include 'db.php'; // Incluimos db.php aquí para manejar la lógica de la base de datos
-?>
+// Incluir el archivo db.php y recibir las variables
+$data = include 'db.php';
 
+// Extraer las variables desde el array $data
+$connection_status = $data['connection_status'];
+$insert_status = $data['insert_status'];
+$result = $data['result'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica 1</title>
+    <title>Practica 1 - Gestión de Productos</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <h1>Practica 1 TEST</h1>
+    <h1>Practica 1 - Gestión de Productos</h1>
     <div class="container">
-        <h1>Estado de Conexión</h1>
+        <h2>Estado de Conexión</h2>
         <div class="status"><?php echo $connection_status; ?></div>
         <?php if ($insert_status) { echo "<div class='status'>$insert_status</div>"; } ?>
 
@@ -31,13 +36,13 @@
         <h2>Lista de Productos</h2>
         <div class="product-list">
             <?php
-            if ($result->num_rows > 0) {
+            if ($result) {
                 echo "<table>";
                 echo "<thead>";
                 echo "<tr><th>Nombre del producto</th><th>Cantidad</th></tr>";
                 echo "</thead>";
                 echo "<tbody>";
-                while($row = $result->fetch_assoc()) {
+                foreach ($result as $row) {
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($row["product_name"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["product_quantity"]) . "</td>";
@@ -50,6 +55,28 @@
             }
             ?>
         </div>
+
+        <?php if ($is_pro_env && !empty($result)) : ?>
+        <h2>Productos en Caché</h2>
+        <div class="product-list">
+            <?php
+            // Aquí mostraríamos los productos que están en la caché
+            echo "<table>";
+            echo "<thead>";
+            echo "<tr><th>Nombre del producto (Caché)</th><th>Cantidad (Caché)</th></tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            foreach ($result as $row) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row["product_name"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["product_quantity"]) . "</td>";
+                echo "</tr>";
+            }
+            echo "</tbody>";
+            echo "</table>";
+            ?>
+        </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
