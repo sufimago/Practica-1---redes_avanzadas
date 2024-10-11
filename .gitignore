@@ -7,3 +7,4 @@ tmp/
 mysql_data/mysql.sockweb/config.php
 mysql_data/
 mysql_data/mysql.sock
+web/config.php
