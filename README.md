@@ -27,12 +27,14 @@ Cómo usar
 1. Configurar el entorno STA (desarrollo básico):
 Ejecuta el siguiente comando para levantar los servicios de MySQL, phpMyAdmin, PHP y Nginx:
                     docker-compose -f docker-compose.sta.yml up --build
+   Donde pondremos la variable is_pro_env EN DB.PHP a false para ejecutar la base de datos de STA.
 
-2. Configurar el entorno PRO (con Redis):
+3. Configurar el entorno PRO (con Redis):
 Para incluir Redis en tu entorno, ejecuta el siguiente comando:
                     docker-compose -f docker-compose.pro.yml up --build
+Donde pondremos la variable is_pro_env EN DB.PHP a true para ejecutar la base de datos de STA.
 
-3. Acceso a phpMyAdmin:
+4. Acceso a phpMyAdmin:
 Una vez levantado el entorno, puedes acceder a phpMyAdmin en http://localhost:8080.
 Los datos de configuración estan el fichero config.php
 
