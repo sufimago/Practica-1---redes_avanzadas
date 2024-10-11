@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicia la sesión
-$is_pro_env = true;  // Cambia a true para producción
+$is_pro_env = false;  // Cambiar a true para producción
 $connection_status = "";
 $insert_status = "";
 $result = null;
@@ -8,21 +8,24 @@ $cache_result = null;
 $cache_key = 'productos_cache'; // Clave de Redis
 $cache_duration = 600; // Duración de la caché en segundos (600 = 10 minutos)
 
+$config = require 'config.php';
+
+
 // Conectar con la base de datos según el entorno
 if ($is_pro_env) {
     // Conectar con Redis solo en producción
     $redis = new Redis();
-    $redis->connect('my_redis_pro', 6379); // Asumiendo que el servicio de Redis en Docker se llama 'redis'
+    $redis->connect('my_redis_pro', 6379);
 
-    $servername = "mysql_db_pro";
-    $username = "root";
-    $password = "pro-pass";
-    $dbname = "pro.db";
+    $servername = $config['db2']['host'];
+    $username = $config['db2']['user'];
+    $password = $config['db2']['password'];
+    $dbname = $config['db2']['dbname'];
 } else {
-    $servername = "mysql_db_sta";
-    $username = "root";
-    $password = "sta-pass";
-    $dbname = "sta.db";
+    $servername = $config['db']['host'];
+    $username = $config['db']['user'];
+    $password = $config['db']['password'];
+    $dbname = $config['db']['dbname'];
 }
 
 // Inicializar el contador de sesión
