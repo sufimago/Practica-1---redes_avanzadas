@@ -19,6 +19,7 @@ practica-1/
 ├── docker-compose.pro.yml       # Archivo Docker Compose para el entorno de PRO (con Redis)
 ├── Dockerfile                   # Dockerfile para configurar el entorno PHP y Redis
 └── nginx.conf                   # Configuración de Nginx para el servidor
+```plaintext
 
 Archivos importantes
 1. docker-compose.sta.yml
