@@ -5,24 +5,6 @@ Este proyecto es una configuración de Docker para un entorno de desarrollo que 
 para procesar el backend, MySQL como base de datos y Redis para caching en la versión PRO. Además, se incluyen archivos
 de configuración y volúmenes para mantener la persistencia de datos.
 
-# Estructura del Proyecto:
-practica-1/
-│
-├── mysql_data/                  # Volúmenes de la base de datos
-│
-├── web/                         # Directorio para los archivos del sitio web
-│   ├── db.php                   # Archivo de conexión a la base de datos
-│   ├── index.php                # Archivo principal del sitio web
-|   |__ config.php               # Archivo configuración base de datos
-│   └── css/
-│       └── style.css            # Estilos CSS
-│
-├── docker-compose.sta.yml       # Archivo Docker Compose para el entorno de STA (básico)
-├── docker-compose.pro.yml       # Archivo Docker Compose para el entorno de PRO (con Redis)
-├── Dockerfile                   # Dockerfile para configurar el entorno PHP y Redis
-└── nginx.conf                   # Configuración de Nginx para el servidor
-
-
 # Archivos importantes
 
 1. docker-compose.sta.yml
@@ -56,6 +38,24 @@ Los datos de configuración estan el fichero config.php
 
 5. Acceso al sitio web:
 El sitio estará disponible en http://localhost.
+
+# Estructura del Proyecto:
+``` plain text
+practica-1/
+│
+├── mysql_data/                  # Volúmenes de la base de datos
+│
+├── web/                         # Directorio para los archivos del sitio web
+│   ├── db.php                   # Archivo de conexión a la base de datos
+│   ├── index.php                # Archivo principal del sitio web
+|   |__ config.php               # Archivo configuración base de datos
+│   └── css/
+│       └── style.css            # Estilos CSS
+│
+├── docker-compose.sta.yml       # Archivo Docker Compose para el entorno de STA (básico)
+├── docker-compose.pro.yml       # Archivo Docker Compose para el entorno de PRO (con Redis)
+├── Dockerfile                   # Dockerfile para configurar el entorno PHP y Redis
+└── nginx.conf                   # Configuración de Nginx para el servidor
 
 # Notas:
 Volúmenes: Los datos de MySQL se guardan en la carpeta mysql_data, lo que asegura que la información no se pierda cuando se detengan los contenedores.
