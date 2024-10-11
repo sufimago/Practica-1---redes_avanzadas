@@ -1,10 +1,10 @@
-```plaintext
 
 # Proyecto: 
 Configuración Docker con MySQL, Nginx, PHP y Redis
 Este proyecto es una configuración de Docker para un entorno de desarrollo que utiliza Nginx como servidor web, PHP-FPM para procesar el backend, MySQL como base de datos y Redis para caching en la versión PRO. Además, se incluyen archivos de configuración y volúmenes para mantener la persistencia de datos.
 
 # Estructura del Proyecto
+```plaintext
 practica-1/
 │
 ├── mysql_data/                  # Volúmenes de la base de datos
