@@ -1,7 +1,10 @@
 
 # Proyecto: 
+```plaintext
 Configuración Docker con MySQL, Nginx, PHP y Redis
-Este proyecto es una configuración de Docker para un entorno de desarrollo que utiliza Nginx como servidor web, PHP-FPM para procesar el backend, MySQL como base de datos y Redis para caching en la versión PRO. Además, se incluyen archivos de configuración y volúmenes para mantener la persistencia de datos.
+Este proyecto es una configuración de Docker para un entorno de desarrollo que utiliza Nginx como servidor web, PHP-FPM
+para procesar el backend, MySQL como base de datos y Redis para caching en la versión PRO. Además, se incluyen archivos
+de configuración y volúmenes para mantener la persistencia de datos.
 
 # Estructura del Proyecto
 ```plaintext
@@ -21,6 +24,7 @@ practica-1/
 └── nginx.conf                   # Configuración de Nginx para el servidor
 
 # Archivos importantes
+```plaintext
 1. docker-compose.sta.yml
 Este archivo levanta el entorno STA que incluye:
 
@@ -54,5 +58,6 @@ Los datos de configuración estan el fichero config.php
 El sitio estará disponible en http://localhost.
 
 # Notas:
+```plaintext
 Volúmenes: Los datos de MySQL se guardan en la carpeta mysql_data, lo que asegura que la información no se pierda cuando se detengan los contenedores.
 Archivos PHP: El código PHP está en el directorio web/. El archivo principal es index.php y la conexión a la base de datos se maneja en db.php.
