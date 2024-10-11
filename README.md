@@ -38,16 +38,17 @@ Archivo de configuración para Nginx, que define cómo manejar las solicitudes H
 Cómo usar
 1. Configurar el entorno STA (desarrollo básico):
 Ejecuta el siguiente comando para levantar los servicios de MySQL, phpMyAdmin, PHP y Nginx:
-                    docker-compose -f docker-compose.sta.yml up
+                    docker-compose -f docker-compose.sta.yml up --build
 
 2. Configurar el entorno PRO (con Redis):
 Para incluir Redis en tu entorno, ejecuta el siguiente comando:
-                    docker-compose -f docker-compose.pro.yml up
+                    docker-compose -f docker-compose.pro.yml up --build
 
 3. Acceso a phpMyAdmin:
 Una vez levantado el entorno, puedes acceder a phpMyAdmin en http://localhost:8080.
+Los datos de configuración estan el fichero config.php
 
-4. Acceso al sitio web:
+5. Acceso al sitio web:
 El sitio estará disponible en http://localhost.
 
 Notas:
